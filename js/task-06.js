@@ -8,3 +8,7 @@ inputField.addEventListener('blur', (event) => {
       inputField.classList.add('valid');
    };
 });
+
+inputField.addEventListener('focus', () => {
+   inputField.classList.remove('invalid', 'valid');
+});
