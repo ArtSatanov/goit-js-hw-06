@@ -13,8 +13,6 @@ function formSubmit(event) {
       return alert('Please fill out all empty fields');
    }
    
-   // const formData = new FormData(event.currentTarget);
-   // console.log(formData);
 
    const formData = {email: email.value, password: password.value};
    console.log(formData);
