@@ -11,15 +11,15 @@ const refs = {
   boxesPlace: document.querySelector('#boxes'),
 };
 
-
 refs.btnCreate.addEventListener('click', () => {
-  if( Number(refs.inputeValue.value.trim()) > Number(refs.inputeValue.max) ||
-  Number(refs.inputeValue.value.trim()) < Number(refs.inputeValue.min)
-) {
-  alert('Please enter number from 1 to 100');
-} else {
+  if (
+    Number(refs.inputeValue.value.trim()) > Number(refs.inputeValue.max) ||
+    Number(refs.inputeValue.value.trim()) < Number(refs.inputeValue.min)
+  ) {
+    alert('Please enter number from 1 to 100');
+  } else {
     createBoxes(Number(refs.inputeValue.value.trim()));
-}
+  }
 });
 
 refs.btnDestroy.addEventListener('click', destroyBoxes);
@@ -31,16 +31,13 @@ function destroyBoxes() {
 
 function createBoxes(amount) {
   const boxes = [];
-for (let i = 0; i < amount; i += 1) {
-  const boxEl = document.createElement('div');
-  boxEl.style.width = 30 + 10 * i + "px"; 
-  boxEl.style.height = 30 + 10 * i + "px";
-  boxEl.style.backgroundColor = getRandomHexColor();
-  boxEl.style.marginBottom = "2px";
-  boxes.push(boxEl);
-}
+  for (let i = 0; i < amount; i += 1) {
+    const boxEl = document.createElement('div');
+    boxEl.style.width = 30 + 10 * i + 'px';
+    boxEl.style.height = 30 + 10 * i + 'px';
+    boxEl.style.backgroundColor = getRandomHexColor();
+    boxEl.style.marginBottom = '2px';
+    boxes.push(boxEl);
+  }
   refs.boxesPlace.append(...boxes);
-};
-
-
-
+}
