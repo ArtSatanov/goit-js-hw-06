@@ -39,7 +39,6 @@ for (let i = 0; i < amount; i += 1) {
   boxEl.style.marginBottom = "2px";
   boxes.push(boxEl);
 }
-  console.log(boxes);
   refs.boxesPlace.append(...boxes);
 };
 
