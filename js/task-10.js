@@ -12,21 +12,35 @@ const refs = {
 };
 
 
-console.log(refs.boxesPlace);
+refs.btnCreate.addEventListener('click', () => {
+  if( Number(refs.inputeValue.value.trim()) > Number(refs.inputeValue.max) ||
+  Number(refs.inputeValue.value.trim()) < Number(refs.inputeValue.min)
+) {
+  alert('Please enter number from 1 to 100');
+} else {
+    createBoxes(Number(refs.inputeValue.value.trim()));
+}
+});
 
-refs.btnCreate.addEventListener('click', createBoxes(10));
+refs.btnDestroy.addEventListener('click', destroyBoxes);
 
-function createBoxes(qty) {
+function destroyBoxes() {
+  refs.inputeValue.value = '';
+  refs.boxesPlace.innerHTML = '';
+}
+
+function createBoxes(amount) {
   const boxes = [];
-for (let i = 0; i < qty; i += 1) {
+for (let i = 0; i < amount; i += 1) {
   const boxEl = document.createElement('div');
   boxEl.style.width = 30 + 10 * i + "px"; 
   boxEl.style.height = 30 + 10 * i + "px";
   boxEl.style.backgroundColor = getRandomHexColor();
+  boxEl.style.marginBottom = "2px";
   boxes.push(boxEl);
 }
   console.log(boxes);
-  refs.boxesPlace.append(...boxes)
+  refs.boxesPlace.append(...boxes);
 };
 
 
